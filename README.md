@@ -1,0 +1,1 @@
+# cadore-theme-v3
