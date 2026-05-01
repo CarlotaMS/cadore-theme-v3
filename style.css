@@ -5,3 +5,323 @@ Author: Carlota
 Description: Tema custom para Cadore Joias
 Version: 1.0
 */
+
+/* =========================================================
+   BRAND VARIABLES
+   ========================================================= */
+:root {
+  --cadore-sage: #a6b5a0;
+  --cadore-cream: #f5f1e8;
+  --cadore-dark-sage: #4a5a50;
+  --cadore-gold: #c8b8a0;
+  --cadore-gold-rich: #d4af37;
+  --cadore-white: #ffffff;
+  --cadore-black: #000000;
+  --cadore-border: rgba(74, 90, 80, 0.18);
+  --cadore-overlay: rgba(74, 90, 80, 0.06);
+
+  --cadore-font-heading: 'CreatoDisplay', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --cadore-font-accent: 'Brolimo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --cadore-font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --cadore-fs-xs: 0.75rem;
+  --cadore-fs-sm: 0.875rem;
+  --cadore-fs-base: 1rem;
+  --cadore-fs-md: 1.125rem;
+  --cadore-fs-lg: 1.5rem;
+  --cadore-fs-xl: clamp(1.8rem, 3vw, 2.4rem);
+
+  --cadore-space-1: 0.25rem;
+  --cadore-space-2: 0.5rem;
+  --cadore-space-3: 0.75rem;
+  --cadore-space-4: 1rem;
+  --cadore-space-5: 1.5rem;
+  --cadore-space-6: 2rem;
+  --cadore-space-7: 3rem;
+
+  --cadore-radius-sm: 4px;
+  --cadore-radius-md: 6px;
+  --cadore-radius-lg: 10px;
+
+  --cadore-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --cadore-shadow-md: 0 6px 16px rgba(0, 0, 0, 0.1);
+
+  --cadore-transition-fast: 0.2s ease;
+  --cadore-transition-base: 0.3s ease;
+
+  --cadore-header-h: 72px;
+  --cadore-max-width: 1200px;
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--cadore-font-body);
+  font-size: var(--cadore-fs-base);
+  line-height: 1.6;
+  color: var(--cadore-dark-sage);
+  background: var(--cadore-white);
+}
+img, svg { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; transition: color var(--cadore-transition-fast); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--cadore-font-heading);
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0 0 var(--cadore-space-4);
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+.cadore-site-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+main, .cadore-main {
+  width: min(var(--cadore-max-width), 100% - 2 * var(--cadore-space-5));
+  margin: 0 auto;
+  padding-block: var(--cadore-space-6);
+}
+
+.woocommerce-page .cadore-main,
+.woocommerce .cadore-main { padding-block: var(--cadore-space-5); }
+
+.woocommerce-cart .cadore-main,
+.woocommerce-account .cadore-main,
+.woocommerce-checkout .cadore-main { padding-top: var(--cadore-space-4); padding-bottom: var(--cadore-space-6); }
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.cadore-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--cadore-header-h);
+  background: var(--cadore-cream);
+  box-shadow: var(--cadore-shadow-sm);
+}
+body.admin-bar .cadore-header { top: 32px; }
+body.admin-bar main, body.admin-bar .cadore-main { scroll-margin-top: calc(var(--cadore-header-h) + 32px); }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.cadore-footer {
+  margin-top: auto;
+  background: var(--cadore-cream);
+  color: var(--cadore-dark-sage);
+  border-top: 1px solid var(--cadore-border);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.cadore-btn,
+button,
+input[type="submit"],
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--cadore-radius-md);
+  border: 1px solid transparent;
+  font-size: var(--cadore-fs-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all var(--cadore-transition-fast);
+}
+
+.cadore-btn--primary,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit,
+.single_add_to_cart_button {
+  background: var(--cadore-dark-sage);
+  color: var(--cadore-cream);
+}
+
+.cadore-btn--secondary,
+.cadore-btn--light,
+.woocommerce .woocommerce-message .button {
+  background: transparent;
+  color: var(--cadore-dark-sage);
+  border-color: var(--cadore-dark-sage);
+}
+
+.cadore-btn:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.single_add_to_cart_button:hover {
+  background: var(--cadore-gold);
+  color: var(--cadore-white);
+  border-color: var(--cadore-gold);
+}
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+input:not([type="submit"]), textarea, select,
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
+  width: 100%;
+  border: 1px solid var(--cadore-border);
+  border-radius: var(--cadore-radius-sm);
+  padding: 0.7rem 0.8rem;
+  background: var(--cadore-white);
+  color: var(--cadore-dark-sage);
+}
+input:focus, textarea:focus, select:focus { outline: 2px solid var(--cadore-gold); outline-offset: 1px; }
+
+/* =========================================================
+   PRODUCT CARDS
+   ========================================================= */
+.cadore-products-grid,
+.woocommerce ul.products {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--cadore-space-5);
+}
+
+.cadore-product-card,
+.woocommerce ul.products li.product {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--cadore-border);
+  border-radius: var(--cadore-radius-lg);
+  overflow: hidden;
+  background: var(--cadore-white);
+}
+
+.cadore-product-card__image-wrap,
+.woocommerce ul.products li.product a img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--cadore-overlay);
+}
+
+.cadore-product-card__body,
+.woocommerce ul.products li.product .button { margin-top: auto; }
+
+.woocommerce ul.products li.product .button,
+.cadore-product-card .cadore-btn {
+  width: 100%;
+  margin-top: var(--cadore-space-4);
+  white-space: normal;
+  line-height: 1.3;
+}
+
+/* =========================================================
+   WOOCOMMERCE ARCHIVE
+   ========================================================= */
+.woocommerce .woocommerce-ordering,
+.woocommerce .woocommerce-result-count { margin-bottom: var(--cadore-space-5); }
+
+.woocommerce .woocommerce-notices-wrapper { margin-bottom: var(--cadore-space-4); }
+.woocommerce .woocommerce-message,
+.woocommerce .woocommerce-info,
+.woocommerce .woocommerce-error {
+  border-radius: var(--cadore-radius-md);
+  border: 1px solid var(--cadore-border);
+  background: var(--cadore-cream);
+  color: var(--cadore-dark-sage);
+}
+
+/* =========================================================
+   WOOCOMMERCE SINGLE PRODUCT
+   ========================================================= */
+.single-product div.product {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--cadore-space-6);
+  align-items: start;
+}
+.single-product .woocommerce-product-gallery { border-radius: var(--cadore-radius-lg); overflow: hidden; }
+.single-product .summary { padding: var(--cadore-space-2) 0; }
+.single-product .product_title { font-size: var(--cadore-fs-xl); }
+.single-product p.price,
+.single-product span.price { font-size: var(--cadore-fs-lg); color: var(--cadore-dark-sage); }
+
+.single-product form.cart {
+  display: flex;
+  gap: var(--cadore-space-3);
+  align-items: stretch;
+  margin: var(--cadore-space-5) 0;
+}
+.single-product .quantity .qty {
+  min-height: 42px;
+  width: 80px;
+  text-align: center;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+  display: flex;
+  gap: var(--cadore-space-2);
+  flex-wrap: wrap;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  border-radius: var(--cadore-radius-md) var(--cadore-radius-md) 0 0;
+  border: 1px solid var(--cadore-border);
+  background: var(--cadore-cream);
+}
+.woocommerce div.product .woocommerce-tabs .panel {
+  border: 1px solid var(--cadore-border);
+  border-radius: 0 var(--cadore-radius-md) var(--cadore-radius-md) var(--cadore-radius-md);
+  padding: var(--cadore-space-5);
+}
+
+.single-product .related.products h2 { margin-bottom: var(--cadore-space-5); }
+
+/* hide sidebar/widgets on product contexts */
+.single-product #secondary,
+.post-type-archive-product #secondary,
+.tax-product_cat #secondary,
+.tax-product_tag #secondary,
+.woocommerce-page .widget-area {
+  display: none !important;
+}
+
+/* =========================================================
+   RESPONSIVE RULES
+   ========================================================= */
+@media (max-width: 1024px) {
+  .cadore-products-grid,
+  .woocommerce ul.products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 782px) {
+  body.admin-bar .cadore-header { top: 46px; }
+  main, .cadore-main { width: min(var(--cadore-max-width), 100% - 2 * var(--cadore-space-4)); }
+  .single-product div.product { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px) {
+  .cadore-products-grid,
+  .woocommerce ul.products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--cadore-space-4); }
+
+  .single-product form.cart { flex-direction: column; }
+  .single_add_to_cart_button { width: 100%; }
+
+  .cadore-footer__inner,
+  .cadore-footer__bottom-inner { grid-template-columns: 1fr; gap: var(--cadore-space-5); }
+
+  .woocommerce form.checkout,
+  .woocommerce .col2-set { display: grid; grid-template-columns: 1fr; gap: var(--cadore-space-4); }
+}
+
+@media (max-width: 480px) {
+  .cadore-header { height: auto; min-height: 64px; }
+  .cadore-products-grid,
+  .woocommerce ul.products { grid-template-columns: 1fr; }
+}
